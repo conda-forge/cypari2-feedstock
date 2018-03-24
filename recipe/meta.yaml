@@ -14,9 +14,7 @@ build:
   number: 1
   skip: true  # [win]
   script:
-    # https://github.com/conda-forge/toolchain-feedstock/pull/11
-    - export CPPFLAGS="-I${PREFIX}/include ${CPPFLAGS}"
-    - pip install .
+    - python -m pip install --no-deps --ignore-installed .
 
 requirements:
   build:
