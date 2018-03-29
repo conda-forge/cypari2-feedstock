@@ -11,12 +11,10 @@ source:
   sha256: b61e30a697250adf6369c21f148f7552aae6abfbb673171c2b97ec3c8fb74676
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   script:
-    # https://github.com/conda-forge/toolchain-feedstock/pull/11
-    - export CPPFLAGS="-I${PREFIX}/include ${CPPFLAGS}"
-    - python setup.py install --single-version-externally-managed --record record.txt
+    - python -m pip install --no-deps --ignore-installed .
 
 requirements:
   build:
@@ -25,6 +23,7 @@ requirements:
     - cython
     - python
     - pari >=2.9
+    - pip
     - cysignals
   run:
     - python
@@ -36,6 +35,7 @@ test:
     - cypari2
   commands:
     - python -c "import doctest; import cypari2; doctest.testmod(cypari2, optionflags=doctest.ELLIPSIS|doctest.REPORT_NDIFF)"
+    - test -f $SP_DIR/cypari2/auto_paridecl.pxd
 
 about:
   home: https://github.com/defeo/cypari2
@@ -46,3 +46,4 @@ about:
 extra:
   recipe-maintainers:
     - isuruf
+    - saraedum
