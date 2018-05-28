@@ -14,7 +14,7 @@ build:
   number: 2
   skip: true  # [win]
   script:
-    - python -m pip install --no-deps --ignore-installed .
+    - python -m pip install --no-deps --ignore-installed --verbose .
 
 requirements:
   build:
@@ -26,10 +26,12 @@ requirements:
     - pari >=2.9
     - pip
     - cysignals
+    - gmp
   run:
     - python
     - {{ pin_compatible('pari', max_pin='x.x.x') }}
     - cysignals
+    - gmp
 
 test:
   imports:
