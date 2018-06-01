@@ -11,24 +11,27 @@ source:
   sha256: b61e30a697250adf6369c21f148f7552aae6abfbb673171c2b97ec3c8fb74676
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
   script:
-    - python -m pip install --no-deps --ignore-installed .
+    - python -m pip install --no-deps --ignore-installed --verbose .
 
 requirements:
   build:
-    - toolchain
+    - {{ compiler('c') }}
+  host:
     - setuptools
     - cython
     - python
     - pari >=2.9
     - pip
     - cysignals
+    - gmp
   run:
     - python
-    - pari >=2.9
+    - {{ pin_compatible('pari', max_pin='x.x.x') }}
     - cysignals
+    - gmp
 
 test:
   imports:
