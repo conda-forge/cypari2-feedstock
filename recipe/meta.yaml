@@ -1,4 +1,4 @@
-{% set version = "1.1.4" %}
+{% set version = "1.2.0" %}
 {% set name = "cypari2" %}
 
 package:
@@ -8,10 +8,10 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/defeo/cypari2/archive/{{ version }}.tar.gz
-  sha256: b61e30a697250adf6369c21f148f7552aae6abfbb673171c2b97ec3c8fb74676
+  sha256: 398d3a98a200d1dae5265b26ab818b713889156c73e29920c77f7ac528a0bc3a
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win]
   script:
     - python -m pip install --no-deps --ignore-installed --verbose .
