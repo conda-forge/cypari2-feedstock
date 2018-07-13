@@ -1,4 +1,4 @@
-{% set version = "1.2.0" %}
+{% set version = "1.2.1" %}
 {% set name = "cypari2" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/defeo/cypari2/archive/{{ version }}.tar.gz
-  sha256: 398d3a98a200d1dae5265b26ab818b713889156c73e29920c77f7ac528a0bc3a
+  sha256: 85697e61047c9b1e9132c846090d660b12511a1456a5add3c9f5dfb7568786fe
 
 build:
   number: 0
