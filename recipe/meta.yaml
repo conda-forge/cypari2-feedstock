@@ -23,7 +23,7 @@ requirements:
     - setuptools
     - cython
     - python
-    - pari >=2.9
+    - pari
     - pip
     - cysignals
     - gmp
