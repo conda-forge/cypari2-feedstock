@@ -29,7 +29,7 @@ requirements:
     - gmp
   run:
     - python
-    - {{ pin_compatible('pari', max_pin='x.x.x') }}
+    - {{ pin_compatible('pari', max_pin='x.x') }}
     - cysignals
     - gmp
 
