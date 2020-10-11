@@ -42,7 +42,7 @@ test:
 
 about:
   home: https://github.com/defeo/cypari2
-  license: GPLv2+
+  license: GPL-2.0-or-later
   license_file: LICENSE
   summary: 'An interface to the number theory library libpari'
 
