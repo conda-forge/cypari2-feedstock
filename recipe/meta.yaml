@@ -8,11 +8,14 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 03cd45edab8716ebbfdb754e65fea72e873c73dc91aec098fe4a01e35324ac7a
+  patches:
+    - gh106.patch
 
 build:
   number: 0
   skip: true  # [win]
   script:
+    - export PARI_SHARE="$PREFIX/share/pari"  # [unix]
     - python -m pip install --no-deps --ignore-installed --verbose .
 
 requirements:
