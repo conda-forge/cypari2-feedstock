@@ -13,7 +13,7 @@ gmp:
 macos_machine:
 - arm64-apple-darwin20.0.0
 pari:
-- '2.11'
+- '2.13'
 pin_run_as_build:
   gmp:
     max_pin: x
