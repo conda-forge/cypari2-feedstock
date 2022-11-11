@@ -1,4 +1,4 @@
-{% set version = "2.1.2" %}
+{% set version = "2.1.3" %}
 {% set name = "cypari2" %}
 
 package:
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 03cd45edab8716ebbfdb754e65fea72e873c73dc91aec098fe4a01e35324ac7a
+  sha256: 17beb467d3cb39fffec3227c468f0dd8db8a09129faeb95a6bb4c84b2b6c6683
   patches:
     - gh106.patch
 
 build:
-  number: 5
+  number: 0
   skip: true  # [win]
   script:
     - export PARI_SHARE="$PREFIX/share/pari"  # [unix]
@@ -49,7 +49,7 @@ about:
   home: https://github.com/defeo/cypari2
   license: GPL-2.0-or-later
   license_file: LICENSE
-  summary: 'An interface to the number theory library libpari'
+  summary: An interface to the number theory library libpari
 
 extra:
   recipe-maintainers:
