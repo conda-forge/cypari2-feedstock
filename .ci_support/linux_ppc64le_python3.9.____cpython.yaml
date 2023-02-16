@@ -1,7 +1,7 @@
 c_compiler:
 - gcc
 c_compiler_version:
-- '10'
+- '11'
 cdt_name:
 - cos7
 channel_sources:
@@ -13,7 +13,7 @@ docker_image:
 gmp:
 - '6'
 pari:
-- 2.13.* *_pthread
+- 2.15.* *_pthread
 pin_run_as_build:
   python:
     min_pin: x.x
