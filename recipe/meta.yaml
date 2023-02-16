@@ -10,7 +10,7 @@ source:
   sha256: 17beb467d3cb39fffec3227c468f0dd8db8a09129faeb95a6bb4c84b2b6c6683
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   script:
     - export PARI_SHARE="$PREFIX/share/pari"  # [unix]
