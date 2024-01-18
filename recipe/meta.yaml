@@ -1,4 +1,4 @@
-{% set version = "2.1.3" %}
+{% set version = "2.1.4" %}
 {% set name = "cypari2" %}
 
 package:
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 17beb467d3cb39fffec3227c468f0dd8db8a09129faeb95a6bb4c84b2b6c6683
+  sha256: efa4a44d96f693cb1156da1fd6fccc130dafcf9c19af4185cf770bf44d00dbfc
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win]
   script:
     - export PARI_SHARE="$PREFIX/share/pari"  # [unix]
