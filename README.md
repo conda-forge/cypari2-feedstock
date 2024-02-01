@@ -3,7 +3,7 @@ About cypari2-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/cypari2-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/defeo/cypari2
+Home: https://github.com/sagemath/cypari2
 
 Package license: GPL-2.0-or-later
 
