@@ -11,7 +11,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [win]
+  skip: true  # [win or py<39]
   script:
     - export PARI_SHARE="$PREFIX/share/pari"  # [unix]
     - python -m pip install --no-deps --ignore-installed --verbose .
