@@ -10,7 +10,7 @@ source:
   sha256: 17beb467d3cb39fffec3227c468f0dd8db8a09129faeb95a6bb4c84b2b6c6683
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win]
   script:
     - export PARI_SHARE="$PREFIX/share/pari"  # [unix]
@@ -44,7 +44,7 @@ test:
     - test -f $SP_DIR/cypari2/auto_paridecl.pxd
 
 about:
-  home: https://github.com/defeo/cypari2
+  home: https://github.com/sagemath/cypari2
   license: GPL-2.0-or-later
   license_file: LICENSE
   summary: An interface to the number theory library libpari
