@@ -1,4 +1,4 @@
-{% set version = "2.1.5" %}
+{% set version = "2.2.0" %}
 {% set name = "cypari2" %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 1a25865c34f20b1dc95830798e34ab6436e278b8e0c80dc7bf0ab34c5db03ab8
+  sha256: 817606bf661b71d33e1d012421907a4f8fb09dd81b7d3e3ae179b3978020bbf1
 
 build:
   number: 0
@@ -23,6 +23,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - setuptools
     - cython
