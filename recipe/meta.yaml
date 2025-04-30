@@ -10,7 +10,7 @@ source:
   sha256: aaa017a6a280581902f73cf5ce1695712b6598a032be14cfab81f97c475f83b8
 
 build:
-  number: 0
+  number: 1
   # cypari2 is generally compatible with Python 3.8 (but 2.1.3 and 2.1.4 have problems with that Python.)
   skip: true  # [win or py<39]
   script:
