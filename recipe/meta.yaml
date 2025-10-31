@@ -1,4 +1,4 @@
-{% set version = "2.2.2" %}
+{% set version = "2.2.4" %}
 {% set name = "cypari2" %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 13a338735ea221c1068f8fc415561bf777d8c68725702bc749547264fd091720
+  sha256: f9f0e994a9a0b064619320411e1d9c303158847e055b58082efdade5ac97f613
 
 build:
   number: 0
