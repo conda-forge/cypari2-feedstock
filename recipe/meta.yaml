@@ -25,7 +25,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
   host:
-    - meson
+    - meson-python
     - cython
     - python
     - pari
