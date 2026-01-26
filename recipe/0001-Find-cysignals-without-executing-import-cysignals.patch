@@ -31,7 +31,7 @@ index f002877..8599626 100644
 -  ],
 -  check: true,
 -).stdout().strip()
-+inc_cysignals = join_paths(py.get_install_dir(), "cysignals")
++inc_cysignals = join_paths(py.get_install_dir(), 'cysignals')
  cysignals = declare_dependency(include_directories: inc_cysignals)
  
  # Find PARI
