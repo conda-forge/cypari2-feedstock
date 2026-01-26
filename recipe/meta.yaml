@@ -25,7 +25,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
   host:
-    - setuptools
+    - meson
     - cython
     - python
     - pari
