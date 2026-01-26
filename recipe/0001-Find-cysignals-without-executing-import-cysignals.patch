@@ -1,0 +1,40 @@
+From 6d5bd7c28507e7cca8362af45ac767c336117d03 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Julian=20R=C3=BCth?= <julian.rueth@fsfe.org>
+Date: Mon, 26 Jan 2026 23:46:21 +0100
+Subject: [PATCH] Find cysignals without executing import cysignals
+
+---
+ meson.build | 17 +----------------
+ 1 file changed, 1 insertion(+), 16 deletions(-)
+
+diff --git a/meson.build b/meson.build
+index f002877..8599626 100644
+--- a/meson.build
++++ b/meson.build
+@@ -19,22 +19,7 @@ add_project_arguments('-X c_api_binop_methods=True', language: 'cython')
+ run_command(cc, '-v', check:true)
+ 
+ # Dependencies  
+-inc_cysignals = run_command(
+-  py,
+-  [
+-    '-c',
+-    '''
+-from os.path import relpath
+-import cysignals
+-path = cysignals.__file__.replace('__init__.py', '')
+-try:
+-  print(relpath(path))
+-except Exception:
+-  print(path)
+-    '''.strip(),
+-  ],
+-  check: true,
+-).stdout().strip()
++inc_cysignals = join_paths(py.get_install_dir(), "cysignals")
+ cysignals = declare_dependency(include_directories: inc_cysignals)
+ 
+ # Find PARI
+-- 
+2.52.0
+

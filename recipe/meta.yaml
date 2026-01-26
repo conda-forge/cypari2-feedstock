@@ -8,6 +8,8 @@ package:
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: f9f0e994a9a0b064619320411e1d9c303158847e055b58082efdade5ac97f613
+  patches:
+    - 0001-Find-cysignals-without-executing-import-cysignals.patch
 
 build:
   number: 0
