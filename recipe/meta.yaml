@@ -26,6 +26,7 @@ requirements:
     - cython                                 # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
+    - ninja
   host:
     - meson-python
     - cython
