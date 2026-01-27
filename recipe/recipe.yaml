@@ -1,0 +1,68 @@
+schema_version: 1
+
+context:
+  version: 2.2.4
+  name: cypari2
+
+package:
+  name: ${{ name }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
+  sha256: f9f0e994a9a0b064619320411e1d9c303158847e055b58082efdade5ac97f613
+  patches:
+    - 0001-Find-cysignals-without-executing-import-cysignals.patch
+    - 0002-Do-not-run-PARI-code-when-cross-compiling.patch
+    - 0003-Allow-providing-datadir-when-cross-compiling.patch
+
+build:
+  number: 0
+  skip: win or match(python, "<3.12")
+
+requirements:
+  build:
+    - if: build_platform != target_platform
+      then: python
+    - if: build_platform != target_platform
+      then: cross-python_${{ target_platform }}
+    - if: build_platform != target_platform
+      then: cython
+    - if: build_platform != target_platform
+      then: meson-python
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
+  host:
+    - python-build
+    - meson-python
+    - cython
+    - python
+    - pari
+    - pip
+    - cysignals
+    - gmp
+  run:
+    - python
+    - cysignals >=1.11.3
+
+tests:
+  - python:
+      imports:
+        - cypari2
+  - package_contents:
+      files:
+        - lib/python*/site-packages/cypari2/auto_paridecl.pxd
+  - script:
+      - python -c "import doctest; import cypari2; doctest.testmod(cypari2, optionflags=doctest.ELLIPSIS|doctest.REPORT_NDIFF)"
+
+about:
+  license: GPL-2.0-or-later
+  license_file: LICENSE
+  summary: An interface to the number theory library libpari
+  homepage: https://github.com/sagemath/cypari2
+
+extra:
+  recipe-maintainers:
+    - maresb
+    - isuruf
+    - saraedum
