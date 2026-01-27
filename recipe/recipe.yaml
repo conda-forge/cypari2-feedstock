@@ -43,9 +43,7 @@ requirements:
     - gmp
   run:
     - python
-    - ${{ pin_compatible('pari', upper_bound='x.x') }}
     - cysignals >=1.11.3
-    - gmp
 
 tests:
   - python:
