@@ -28,10 +28,11 @@ requirements:
     - if: build_platform != target_platform
       then: cython
     - meson-python
+    - python-build
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
   host:
-    - python-build
+    - meson
     - cython
     - python
     - pari
