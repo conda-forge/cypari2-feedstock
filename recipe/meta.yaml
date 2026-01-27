@@ -10,6 +10,7 @@ source:
   sha256: f9f0e994a9a0b064619320411e1d9c303158847e055b58082efdade5ac97f613
   patches:
     - 0001-Find-cysignals-without-executing-import-cysignals.patch
+    - 0002-Do-not-run-PARI-code-when-cross-compiling.patch
 
 build:
   number: 0
