@@ -14,6 +14,7 @@ source:
   patches:
     - 0001-Find-cysignals-without-executing-import-cysignals.patch
     - 0002-Do-not-run-PARI-code-when-cross-compiling.patch
+    - 0003-Allow-providing-datadir-when-cross-compiling.patch
 
 build:
   number: 0

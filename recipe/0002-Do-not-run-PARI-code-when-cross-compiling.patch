@@ -1,7 +1,7 @@
 From 139e01bb5ae3c4cf28722f96796baed6f1ff3b01 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Julian=20R=C3=BCth?= <julian.rueth@fsfe.org>
 Date: Tue, 27 Jan 2026 10:26:02 +0100
-Subject: [PATCH 2/2] Do not run PARI code when cross-compiling
+Subject: [PATCH 2/3] Do not run PARI code when cross-compiling
 
 ---
  meson.build | 44 +++++++++++++++++++++++---------------------
