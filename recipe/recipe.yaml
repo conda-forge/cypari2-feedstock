@@ -27,14 +27,10 @@ requirements:
       then: cross-python_${{ target_platform }}
     - if: build_platform != target_platform
       then: cython
-    - if: build_platform != target_platform
-      then: meson-python
-    - if: build_platform != target_platform
-      then: ninja
+    - meson-python
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
   host:
-    - meson-python
     - python-build
     - cython
     - python
