@@ -1,4 +1,4 @@
-From c37254d5b66743dd026be7b7ae181d3c9e66e49d Mon Sep 17 00:00:00 2001
+From 139e01bb5ae3c4cf28722f96796baed6f1ff3b01 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Julian=20R=C3=BCth?= <julian.rueth@fsfe.org>
 Date: Tue, 27 Jan 2026 10:26:02 +0100
 Subject: [PATCH 2/2] Do not run PARI code when cross-compiling
@@ -8,7 +8,7 @@ Subject: [PATCH 2/2] Do not run PARI code when cross-compiling
  1 file changed, 23 insertions(+), 21 deletions(-)
 
 diff --git a/meson.build b/meson.build
-index 8599626..62e46e1 100644
+index f73517c..9d52155 100644
 --- a/meson.build
 +++ b/meson.build
 @@ -57,27 +57,29 @@ pari = cc.find_library(
