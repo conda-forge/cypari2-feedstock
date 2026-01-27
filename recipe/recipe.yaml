@@ -51,9 +51,11 @@ tests:
   - python:
       imports:
         - cypari2
+  - package_contents:
+      files:
+        - lib/python*/site-packages/cypari2/auto_paridecl.pxd
   - script:
       - python -c "import doctest; import cypari2; doctest.testmod(cypari2, optionflags=doctest.ELLIPSIS|doctest.REPORT_NDIFF)"
-      - test -f $SP_DIR/cypari2/auto_paridecl.pxd
 
 about:
   license: GPL-2.0-or-later
