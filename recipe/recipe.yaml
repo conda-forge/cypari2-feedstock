@@ -27,12 +27,13 @@ requirements:
       then: cross-python_${{ target_platform }}
     - if: build_platform != target_platform
       then: cython
-    - meson-python
-    - python-build
+    - if: build_platform != target_platform
+      then: meson-python
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
   host:
-    - meson
+    - python-build
+    - meson-python
     - cython
     - python
     - pari
