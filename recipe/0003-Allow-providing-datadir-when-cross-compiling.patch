@@ -1,17 +1,19 @@
-From f07dd7a4d03dba4a4d6d3e295844aabc88767eef Mon Sep 17 00:00:00 2001
+From 81b3b0b28d2b3147bce70e3243a27da55412e736 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Julian=20R=C3=BCth?= <julian.rueth@fsfe.org>
 Date: Tue, 27 Jan 2026 11:27:18 +0100
 Subject: [PATCH 3/3] Allow providing datadir when cross-compiling
 
 ---
- meson.build | 38 ++++++++++++++++++++++----------------
- 1 file changed, 22 insertions(+), 16 deletions(-)
+ meson.build   | 38 +++++++++++++++++++++-----------------
+ meson.options |  2 ++
+ 2 files changed, 23 insertions(+), 17 deletions(-)
+ create mode 100644 meson.options
 
 diff --git a/meson.build b/meson.build
-index 9d52155..3b0d4c4 100644
+index 9d52155..f4b52b9 100644
 --- a/meson.build
 +++ b/meson.build
-@@ -81,22 +81,28 @@ if meson.can_run_host_binaries()
+@@ -81,26 +81,30 @@ if meson.can_run_host_binaries()
    message('PARI Version: ' + pari_version.stdout())
  endif
  
@@ -31,11 +33,8 @@ index 9d52155..3b0d4c4 100644
 -  dependencies: [pari],
 -  required: true,
 -).stdout()
-+pari_share = meson.get_env('PARI_SHARE')
-+if pari_share != ''
-+  pari_datadir = pari_share
-+  message('PARI_SHARE set; using: ' + pari_datadir)
-+else
++pari_datadir = get_option('pari_datadir')
++if pari_datadir == ''
 +  pari_datadir_code = '''
 +  #include <stdio.h>
 +  #include <pari/pari.h>
@@ -53,9 +52,23 @@ index 9d52155..3b0d4c4 100644
 +    required: true,
 +  ).stdout()
 +endif
++message('PARI data dir: ' + pari_datadir)
  
  # In MSYS, convert to Windows path
  # (e.g /usr/share/pari -> C:\msys64\usr\share\pari)
+-if host_machine.system() == 'windows'
++if host_machine.system() == 'windows' and pari_datadir.startswith('/')
+   pari_datadir = run_command(
+     'cygpath', '-am', pari_datadir,
+     check: true,
+diff --git a/meson.options b/meson.options
+new file mode 100644
+index 0000000..74498b9
+--- /dev/null
++++ b/meson.options
+@@ -0,0 +1,2 @@
++option('pari_datadir', type: 'string', value:  '', description: 'location of the share directory of PARI')
++
 -- 
 2.52.0
 
