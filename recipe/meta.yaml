@@ -24,9 +24,10 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
+    - meson-python                           # [build_platform != target_platform]
+    - ninja                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
-    - ninja
   host:
     - meson-python
     - cython
