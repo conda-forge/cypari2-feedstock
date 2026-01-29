@@ -15,9 +15,10 @@ source:
     - 0001-Find-cysignals-without-executing-import-cysignals.patch
     - 0002-Do-not-run-PARI-code-when-cross-compiling.patch
     - 0003-Allow-providing-datadir-when-cross-compiling.patch
+    - 0004-Provide-.pc-file.patch
 
 build:
-  number: 0
+  number: 1
   skip: win or match(python, "<3.12")
 
 requirements:

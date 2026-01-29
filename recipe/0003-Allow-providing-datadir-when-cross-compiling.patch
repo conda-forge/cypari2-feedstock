@@ -1,7 +1,7 @@
 From 81b3b0b28d2b3147bce70e3243a27da55412e736 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Julian=20R=C3=BCth?= <julian.rueth@fsfe.org>
 Date: Tue, 27 Jan 2026 11:27:18 +0100
-Subject: [PATCH 3/3] Allow providing datadir when cross-compiling
+Subject: [PATCH 3/4] Allow providing datadir when cross-compiling
 
 ---
  meson.build   | 38 +++++++++++++++++++++-----------------

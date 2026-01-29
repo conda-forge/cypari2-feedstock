@@ -1,0 +1,46 @@
+From 71a8259307acc5c3b4fe2078214cad933f9c9590 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Julian=20R=C3=BCth?= <julian.rueth@fsfe.org>
+Date: Tue, 27 Jan 2026 17:01:00 +0100
+Subject: [PATCH 4/4] Provide .pc file
+
+see patch on upstream
+---
+ cypari2/{cypari2.py.in => cypari2.pc.in} | 4 ++--
+ cypari2/meson.build                      | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+ rename cypari2/{cypari2.py.in => cypari2.pc.in} (56%)
+
+diff --git a/cypari2/cypari2.py.in b/cypari2/cypari2.pc.in
+similarity index 56%
+rename from cypari2/cypari2.py.in
+rename to cypari2/cypari2.pc.in
+index 59a19ac..3c81dc0 100644
+--- a/cypari2/cypari2.py.in
++++ b/cypari2/cypari2.pc.in
+@@ -1,6 +1,6 @@
+-includedir=${pcfiledir}
++includedir=@pcfiledir@
+ 
+ Name: cypari2
+ Description: cypari2 library
+ Version: @version@
+-Cflags: -I${includedir}
++Cflags: -I@includedir@
+diff --git a/cypari2/meson.build b/cypari2/meson.build
+index 4c37553..de1257a 100644
+--- a/cypari2/meson.build
++++ b/cypari2/meson.build
+@@ -49,8 +49,8 @@ endforeach
+ config_data = configuration_data()
+ config_data.set('version', meson.project_version())
+ configure_file(
+-  input: 'cypari2.py.in',
+-  output: 'cypari2.py',
++  input: 'cypari2.pc.in',
++  output: 'cypari2.pc',
+   configuration: config_data,
+   install: true,
+   install_dir: py.get_install_dir() / 'cypari2'
+-- 
+2.52.0
+
