@@ -17,19 +17,17 @@ source:
     - 0003-Allow-providing-datadir-when-cross-compiling.patch
 
 build:
-  number: 0
+  number: 1
   skip: win or match(python, "<3.12")
 
 requirements:
   build:
     - if: build_platform != target_platform
-      then: python
-    - if: build_platform != target_platform
-      then: cross-python_${{ target_platform }}
-    - if: build_platform != target_platform
-      then: cython
-    - if: build_platform != target_platform
-      then: meson-python
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+        - cython
+        - meson-python
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
   host:
