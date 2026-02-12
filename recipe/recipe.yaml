@@ -18,7 +18,7 @@ source:
     - 0004-Provide-.pc-file.patch
 
 build:
-  number: 1
+  number: 2
   skip: win or match(python, "<3.12")
 
 requirements:
