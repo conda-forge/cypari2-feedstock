@@ -4,14 +4,14 @@ Date: Mon, 26 Jan 2026 23:46:21 +0100
 Subject: [PATCH 1/4] Find cysignals without executing import cysignals
 
 ---
- meson.build | 17 +----------------
- 1 file changed, 1 insertion(+), 16 deletions(-)
+ meson.build | 19 ++++---------------
+ 1 file changed, 4 insertions(+), 15 deletions(-)
 
 diff --git a/meson.build b/meson.build
 index f002877..f73517c 100644
 --- a/meson.build
 +++ b/meson.build
-@@ -19,22 +19,7 @@ add_project_arguments('-X c_api_binop_methods=True', language: 'cython')
+@@ -19,22 +19,10 @@ add_project_arguments('-X c_api_binop_methods=True', language: 'cython')
  run_command(cc, '-v', check:true)
  
  # Dependencies  
@@ -31,7 +31,10 @@ index f002877..f73517c 100644
 -  ],
 -  check: true,
 -).stdout().strip()
-+inc_cysignals = join_paths(py.get_install_dir(), 'cysignals')
++inc_cysignals = get_option('cysignals_incdir')
++if inc_cysignals == ''
++  inc_cysignals = join_paths(py.get_install_dir(), 'cysignals')
++endif
  cysignals = declare_dependency(include_directories: inc_cysignals)
  
  # Find PARI

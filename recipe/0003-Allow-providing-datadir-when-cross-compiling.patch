@@ -5,8 +5,8 @@ Subject: [PATCH 3/4] Allow providing datadir when cross-compiling
 
 ---
  meson.build   | 38 +++++++++++++++++++++-----------------
- meson.options |  2 ++
- 2 files changed, 23 insertions(+), 17 deletions(-)
+ meson.options |  3 +++
+ 2 files changed, 24 insertions(+), 17 deletions(-)
  create mode 100644 meson.options
 
 diff --git a/meson.build b/meson.build
@@ -66,8 +66,9 @@ new file mode 100644
 index 0000000..74498b9
 --- /dev/null
 +++ b/meson.options
-@@ -0,0 +1,2 @@
+@@ -0,0 +1,3 @@
 +option('pari_datadir', type: 'string', value:  '', description: 'location of the share directory of PARI')
++option('cysignals_incdir', type: 'string', value: '', description: 'location of the cysignals include directory')
 +
 -- 
 2.52.0
