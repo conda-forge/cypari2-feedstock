@@ -16,9 +16,10 @@ source:
     - 0002-Do-not-run-PARI-code-when-cross-compiling.patch
     - 0003-Allow-providing-datadir-when-cross-compiling.patch
     - 0004-Provide-.pc-file.patch
+    - 0005-Ignore-homebrew.patch
 
 build:
-  number: 2
+  number: 3
   skip: win or match(python, "<3.12")
 
 requirements:
