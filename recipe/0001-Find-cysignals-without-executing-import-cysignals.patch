@@ -1,14 +1,14 @@
-From a07e4318fa9602ed226690af140f91d2a263058d Mon Sep 17 00:00:00 2001
+From 9d455b466a516068361b7fb9c0aa17e2ee698c3c Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Julian=20R=C3=BCth?= <julian.rueth@fsfe.org>
 Date: Mon, 26 Jan 2026 23:46:21 +0100
-Subject: [PATCH 1/4] Find cysignals without executing import cysignals
+Subject: [PATCH 1/5] Find cysignals without executing import cysignals
 
 ---
- meson.build | 19 ++++---------------
- 1 file changed, 4 insertions(+), 15 deletions(-)
+ meson.build | 20 ++++----------------
+ 1 file changed, 4 insertions(+), 16 deletions(-)
 
 diff --git a/meson.build b/meson.build
-index f002877..f73517c 100644
+index f002877..bbeae3b 100644
 --- a/meson.build
 +++ b/meson.build
 @@ -19,22 +19,10 @@ add_project_arguments('-X c_api_binop_methods=True', language: 'cython')
@@ -39,5 +39,5 @@ index f002877..f73517c 100644
  
  # Find PARI
 -- 
-2.52.0
+2.56.0
 

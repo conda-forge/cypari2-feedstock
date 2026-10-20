@@ -1,7 +1,7 @@
-From 81b3b0b28d2b3147bce70e3243a27da55412e736 Mon Sep 17 00:00:00 2001
+From 3aa268f2e59ccff1d4a64f2dd6badcad37404aab Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Julian=20R=C3=BCth?= <julian.rueth@fsfe.org>
 Date: Tue, 27 Jan 2026 11:27:18 +0100
-Subject: [PATCH 3/4] Allow providing datadir when cross-compiling
+Subject: [PATCH 3/5] Allow providing datadir when cross-compiling
 
 ---
  meson.build   | 38 +++++++++++++++++++++-----------------
@@ -10,10 +10,10 @@ Subject: [PATCH 3/4] Allow providing datadir when cross-compiling
  create mode 100644 meson.options
 
 diff --git a/meson.build b/meson.build
-index 9d52155..f4b52b9 100644
+index c38da6d..5d6cf62 100644
 --- a/meson.build
 +++ b/meson.build
-@@ -81,26 +81,30 @@ if meson.can_run_host_binaries()
+@@ -84,26 +84,30 @@ if meson.can_run_host_binaries()
    message('PARI Version: ' + pari_version.stdout())
  endif
  
@@ -63,7 +63,7 @@ index 9d52155..f4b52b9 100644
      check: true,
 diff --git a/meson.options b/meson.options
 new file mode 100644
-index 0000000..74498b9
+index 0000000..deb8529
 --- /dev/null
 +++ b/meson.options
 @@ -0,0 +1,3 @@
@@ -71,5 +71,5 @@ index 0000000..74498b9
 +option('cysignals_incdir', type: 'string', value: '', description: 'location of the cysignals include directory')
 +
 -- 
-2.52.0
+2.56.0
 

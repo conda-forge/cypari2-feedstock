@@ -1,7 +1,7 @@
-From 71a8259307acc5c3b4fe2078214cad933f9c9590 Mon Sep 17 00:00:00 2001
+From d702964a0871ac31a946184a14a105ebf9c5aa1d Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Julian=20R=C3=BCth?= <julian.rueth@fsfe.org>
 Date: Tue, 27 Jan 2026 17:01:00 +0100
-Subject: [PATCH 4/4] Provide .pc file
+Subject: [PATCH 4/5] Provide .pc file
 
 see patch on upstream
 ---
@@ -42,5 +42,5 @@ index 4c37553..de1257a 100644
    install: true,
    install_dir: py.get_install_dir() / 'cypari2'
 -- 
-2.52.0
+2.56.0
 
