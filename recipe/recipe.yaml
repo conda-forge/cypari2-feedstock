@@ -63,6 +63,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - conda-forge/sage
     - maresb
     - isuruf
     - saraedum
