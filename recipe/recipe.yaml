@@ -18,7 +18,7 @@ source:
 
 build:
   number: 0
-  skip: win or match(python, "<3.12")
+  skip: win or match(python, "<3.13")
 
 requirements:
   build:
