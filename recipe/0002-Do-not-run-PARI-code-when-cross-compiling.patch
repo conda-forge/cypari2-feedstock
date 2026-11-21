@@ -1,4 +1,4 @@
-From 92fa4998b3d2f39128de76c7c203fbf634062b2e Mon Sep 17 00:00:00 2001
+From 4cbb982397ea00d2c6469bc71a09c5c6c23612a9 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Julian=20R=C3=BCth?= <julian.rueth@fsfe.org>
 Date: Tue, 27 Jan 2026 10:26:02 +0100
 Subject: [PATCH 2/3] Do not run PARI code when cross-compiling

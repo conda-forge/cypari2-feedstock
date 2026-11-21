@@ -1,4 +1,4 @@
-From 44a27f0c81d274073bcf3de29c2ff0da1d916dc1 Mon Sep 17 00:00:00 2001
+From e46485d2512e078e36010aea713949c8d18103f2 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Julian=20R=C3=BCth?= <julian.rueth@fsfe.org>
 Date: Tue, 20 Oct 2026 11:52:59 -0600
 Subject: [PATCH 3/3] Ignore homebrew
