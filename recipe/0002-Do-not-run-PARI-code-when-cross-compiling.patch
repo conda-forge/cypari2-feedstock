@@ -1,67 +1,46 @@
-From fb27ef8586c69307477bba9e0e5e8a7538c2caa8 Mon Sep 17 00:00:00 2001
+From 92fa4998b3d2f39128de76c7c203fbf634062b2e Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Julian=20R=C3=BCth?= <julian.rueth@fsfe.org>
 Date: Tue, 27 Jan 2026 10:26:02 +0100
-Subject: [PATCH 2/5] Do not run PARI code when cross-compiling
+Subject: [PATCH 2/3] Do not run PARI code when cross-compiling
 
 ---
- meson.build | 44 +++++++++++++++++++++++---------------------
- 1 file changed, 23 insertions(+), 21 deletions(-)
+ meson.build | 23 ++++++++++++-----------
+ 1 file changed, 12 insertions(+), 11 deletions(-)
 
 diff --git a/meson.build b/meson.build
-index bbeae3b..c38da6d 100644
+index ef4d3db..55f4ac4 100644
 --- a/meson.build
 +++ b/meson.build
-@@ -60,27 +60,29 @@ pari = cc.find_library(
+@@ -82,17 +82,18 @@ pari = cc.find_library(
  pari = declare_dependency(include_directories: pari_header_include_dirs,
    dependencies: [pari, gmp])
  
--# Get PARI version (mostly as smoke test)
--pari_version_code = '''
--#include <stdio.h>
--#include <pari/pari.h>
--int main(void) {
--  pari_init(1000000, 2);
--  GEN v = pari_version();
--  const char *version = GENtostr(pari_version());
--  pari_printf("%s",version);
--  pari_close();
--  return 0;
--}
--'''
--pari_version = cc.run(
--  pari_version_code,
--  args: ['-v'],
--  name: 'pari version',
+-# PARI_VERSION_CODE is (major << 16) + (minor << 8) + patch
+-pari_version_int = cc.compute_int(
+-  'PARI_VERSION_CODE',
+-  prefix: '#include <pari/pari.h>',
 -  dependencies: [pari],
--  required: true,
 -)
--message('PARI Version: ' + pari_version.stdout())
+-pari_version_str = '@0@.@1@.@2@'.format(
+-  pari_version_int / 65536,
+-  pari_version_int / 256 % 256,
+-  pari_version_int % 256,
+-)
 +if meson.can_run_host_binaries()
-+  # Get PARI version (mostly as smoke test)
-+  pari_version_code = '''
-+  #include <stdio.h>
-+  #include <pari/pari.h>
-+  int main(void) {
-+    pari_init(1000000, 2);
-+    GEN v = pari_version();
-+    const char *version = GENtostr(pari_version());
-+    pari_printf("%s",version);
-+    pari_close();
-+    return 0;
-+  }
-+  '''
-+  pari_version = cc.run(
-+    pari_version_code,
-+    args: ['-v'],
-+    name: 'pari version',
++  pari_version_int = cc.compute_int(
++    'PARI_VERSION_CODE',
++    prefix: '#include <pari/pari.h>',
 +    dependencies: [pari],
-+    required: true,
 +  )
-+  message('PARI Version: ' + pari_version.stdout())
++  pari_version_str = '@0@.@1@.@2@'.format(
++    pari_version_int / 65536,
++    pari_version_int / 256 % 256,
++    pari_version_int % 256,
++  )
 +endif
  
- pari_datadir_code = '''
- #include <stdio.h>
+ if meson.can_run_host_binaries()
+   # Get PARI version (mostly as smoke test)
 -- 
-2.56.0
+2.56.1
 
