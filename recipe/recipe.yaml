@@ -13,8 +13,7 @@ source:
   sha256: e547565ee2be8f63036df75d26676c49709d31ac83bee6099c1b80be0e19146a
   patches:
     - 0001-Find-cysignals-without-executing-import-cysignals.patch
-    - 0002-Do-not-run-PARI-code-when-cross-compiling.patch
-    - 0003-Ignore-homebrew.patch
+    - 0002-Ignore-homebrew.patch
 
 build:
   number: 0

@@ -1,14 +1,14 @@
-From e46485d2512e078e36010aea713949c8d18103f2 Mon Sep 17 00:00:00 2001
+From 30558d5c4eb8602ae25d222c865f2ac5ba967f3d Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Julian=20R=C3=BCth?= <julian.rueth@fsfe.org>
 Date: Tue, 20 Oct 2026 11:52:59 -0600
-Subject: [PATCH 3/3] Ignore homebrew
+Subject: [PATCH 2/2] Ignore homebrew
 
 ---
  meson.build | 10 ----------
  1 file changed, 10 deletions(-)
 
 diff --git a/meson.build b/meson.build
-index 55f4ac4..56c817c 100644
+index ef4d3db..f5b7f1a 100644
 --- a/meson.build
 +++ b/meson.build
 @@ -54,16 +54,6 @@ if pari_prefix != ''
