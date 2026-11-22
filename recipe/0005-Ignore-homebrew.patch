@@ -1,0 +1,32 @@
+From ccc89e27c3a49f8a383d89be0ea60c0416439488 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Julian=20R=C3=BCth?= <julian.rueth@fsfe.org>
+Date: Tue, 20 Oct 2026 11:52:59 -0600
+Subject: [PATCH 5/5] Ignore homebrew
+
+---
+ meson.build | 9 ---------
+ 1 file changed, 9 deletions(-)
+
+diff --git a/meson.build b/meson.build
+index 5d6cf62..f6b8f5c 100644
+--- a/meson.build
++++ b/meson.build
+@@ -33,15 +33,6 @@ gmp = dependency('gmp', required: false)
+ # Also require shared library, since otherwise every Cython extension would include it's own copy of pari leading to hard-to-debug segmentation faults at runtime
+ pari_header_include_dirs = [] # additional dirs to search for PARI headers
+ pari_lib_dirs = [] # additional dirs to search for the PARI library
+-if host_machine.system() == 'darwin'
+-  brew = find_program('brew', required: false)
+-  if brew.found()
+-    brew_prefix = run_command(brew, '--prefix', check: true).stdout().strip()
+-    message('Homebrew prefix: ' + brew_prefix)
+-    pari_header_include_dirs += include_directories(brew_prefix + '/include')
+-    pari_lib_dirs += [brew_prefix + '/lib']
+-  endif
+-endif
+ 
+ # Explicitly check for header to give better error message (using -v to show search paths)
+ cc.has_header(
+-- 
+2.56.0
+
