@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: 2.2.4
+  version: "2.2.9"
   name: cypari2
 
 package:
@@ -10,17 +10,14 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: f9f0e994a9a0b064619320411e1d9c303158847e055b58082efdade5ac97f613
+  sha256: 92f5af711fc070fec84fde8a425167005a83e0ea07686c36c4d2ac8cafe089cf
   patches:
     - 0001-Find-cysignals-without-executing-import-cysignals.patch
-    - 0002-Do-not-run-PARI-code-when-cross-compiling.patch
-    - 0003-Allow-providing-datadir-when-cross-compiling.patch
-    - 0004-Provide-.pc-file.patch
-    - 0005-Ignore-homebrew.patch
+    - 0002-Ignore-homebrew.patch
 
 build:
-  number: 5
-  skip: win or match(python, "<3.12")
+  number: 0
+  skip: win or match(python, "<3.13")
 
 requirements:
   build:
