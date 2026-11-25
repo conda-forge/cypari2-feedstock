@@ -16,7 +16,7 @@ source:
     - 0002-Ignore-homebrew.patch
 
 build:
-  number: 0
+  number: 1
   skip: win or match(python, "<3.13")
 
 requirements:
